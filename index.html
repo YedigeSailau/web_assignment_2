@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 3 - Three Layouts One Markup</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 1. Скрываем стандартные радиокнопки */
+    input[type="radio"] {
+      display: none;
+    }
+
+    /* 2. Стилизуем переключатели как красивые кнопки */
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .view-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    /* Подсветка активной кнопки */
+    #mode-grid:checked ~ .controls label[for="mode-grid"],
+    #mode-list:checked ~ .controls label[for="mode-list"],
+    #mode-magazine:checked ~ .controls label[for="mode-magazine"] {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* ==========================================
+       ПЕРЕКЛЮЧЕНИЕ РЕЖИМОВ ОТОБРАЖЕНИЯ (LAYOUTS)
+       ========================================== */
+
+    /* --- MODE 1: GRID MODE --- */
+    #mode-grid:checked ~ .layout-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--gap);
+    }
+
+    /* --- MODE 2: LIST MODE --- */
+    #mode-list:checked ~ .layout-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    #mode-list:checked ~ .layout-container .product-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    #mode-list:checked ~ .layout-container .product-img {
+      width: 140px;
+      height: 90px;
+      flex-shrink: 0;
+    }
+
+    #mode-list:checked ~ .layout-container .product-body {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    #mode-list:checked ~ .layout-container .product-date {
+      margin-top: 0;
+      white-space: nowrap;
+    }
+
+    /* --- MODE 3: MAGAZINE MODE --- */
+    #mode-magazine:checked ~ .layout-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--gap);
+    }
+
+    #mode-magazine:checked ~ .layout-container .product-card:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+      background-color: #eff6ff;
+      border-color: #bfdbfe;
+    }
+
+    #mode-magazine:checked ~ .layout-container .product-card:first-child .product-img {
+      height: 280px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Радиокнопки обязаны быть прямыми соседями перед .layout-container -->
+  <input type="radio" id="mode-grid" name="view" checked>
+  <input type="radio" id="mode-list" name="view">
+  <input type="radio" id="mode-magazine" name="view">
+
+  <!-- Панель переключения -->
+  <div class="controls">
+    <label for="mode-grid" class="view-btn">Grid Mode</label>
+    <label for="mode-list" class="view-btn">List Mode</label>
+    <label for="mode-magazine" class="view-btn">Magazine Mode</label>
+  </div>
+
+  <!-- Контейнер с карточками -->
+  <main class="layout-container">
+    <article class="product-card">
+      <div class="product-img"></div>
+      <div class="product-body">
+        <div>
+          <h3>Breaking News Item</h3>
+          <p>Main lead story article that takes up extra space when magazine mode is enabled.</p>
+        </div>
+        <span class="product-date">Sep 27, 2026</span>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <div class="product-img"></div>
+      <div class="product-body">
+        <div>
+          <h3>Second Article Title</h3>
+          <p>Short description text for regular content card.</p>
+        </div>
+        <span class="product-date">Sep 26, 2026</span>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <div class="product-img"></div>
+      <div class="product-body">
+        <div>
+          <h3>Third Article Product</h3>
+          <p>Another description to demonstrate dynamic multi-column behavior.</p>
+        </div>
+        <span class="product-date">Sep 25, 2026</span>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <div class="product-img"></div>
+      <div class="product-body">
+        <div>
+          <h3>Fourth Article</h3>
+          <p>Flexible content layout scaling test without media queries.</p>
+        </div>
+        <span class="product-date">Sep 24, 2026</span>
+      </div>
+    </article>
+  </main>
+
+</body>
+</html>

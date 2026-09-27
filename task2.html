@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 2 - Component Library</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="library-container">
+    
+    <!-- (1) Navbar -->
+    <div class="component-box">
+      <h2>1. Navigation Bar</h2>
+      <nav class="navbar">
+        <div class="nav-logo">BrandLogo</div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Longer Link Description</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn btn-secondary">Log In</button>
+          <button class="btn">Sign Up</button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- (2) Card Row -->
+    <div class="component-box">
+      <h2>2. Card Row</h2>
+      <div class="card-row">
+        <div class="card">
+          <div class="card-content">
+            <h3>Short Card</h3>
+            <p>Simple description.</p>
+          </div>
+          <button class="btn">Action</button>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Long Content Card</h3>
+            <p>This card has significantly more content to prove that buttons stay perfectly aligned across all cards without using fixed height.</p>
+          </div>
+          <button class="btn">Action</button>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Medium Card</h3>
+            <p>Moderate text length inside the description block.</p>
+          </div>
+          <button class="btn">Action</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- (3) Pagination -->
+    <div class="component-box">
+      <h2>3. Pagination Bar</h2>
+      <div class="pagination-bar">
+        <button class="btn btn-secondary">&laquo; Prev</button>
+        <div class="pagination-center">
+          <span class="page-num">1</span>
+          <span class="page-num">2</span>
+          <span class="page-num">3</span>
+        </div>
+        <button class="btn btn-secondary">Next &raquo;</button>
+        <div class="results-count">Showing 1-10 of 50 results</div>
+      </div>
+    </div>
+
+    <!-- (4) Comment Block -->
+    <div class="component-box">
+      <h2>4. Comment Block</h2>
+      <div class="comment-block">
+        <div class="avatar"></div>
+        <div class="comment-content">
+          <h4>John Doe</h4>
+          <p>This is a long multi-line comment text. Notice how it wraps neatly right next to the avatar icon and never slides under it thanks to flexbox layout structures.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- (5) Pricing Table -->
+    <div class="component-box">
+      <h2>5. Pricing Table</h2>
+      <div class="pricing-table">
+        <div class="pricing-card">
+          <h3>Basic</h3>
+          <p>Essential features for personal projects.</p>
+          <button class="btn btn-secondary" style="margin-top:auto;">Choose Plan</button>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Pro (Recommended)</h3>
+          <p>Full suite of tools for growing teams and advanced requirements.</p>
+          <button class="btn" style="margin-top:auto;">Get Started</button>
+        </div>
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <p>Custom setups for heavy workloads.</p>
+          <button class="btn btn-secondary" style="margin-top:auto;">Contact Us</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
